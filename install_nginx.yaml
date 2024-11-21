@@ -3,25 +3,18 @@
   become: true
   tasks:
 
-    - name: apt update
+    - name: install nginx
       apt:
-        update_cache: true
+        name: 
+          - nginx
+        state: latest
+        update_cache: yes
       when: ansible_distribution in ["Debian","Ubuntu"]
 
     - name: install nginx
-      apt:
-        name: nginx
-        state: latest
-      when: ansible_distribution in ["Debian","Ubuntu"]
-
-
-    - name: yum update
       yum:
-        update_cache: true
-      when: ansible_distribution in ["Amazon","CentOS"]
-
-    - name: install nginx
-      yum:
-        name: nginx
+        name: 
+          - nginx
         state: latest
+        update_cache: yess
       when: ansible_distribution in ["Amazon","CentOS"]
