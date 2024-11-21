@@ -7,5 +7,11 @@
       apt:
         name: nginx
         state: absent
-      when: ansible_distribution == "Ubuntu"
+      when: ansible_distribution in ["Debain","Ubuntu"]
+
+    - name: uninstall nginx from AMAZON linux
+      yum:
+        name: nginx
+        state: absent
+      when: ansible_distribution in ["Amazon","CentOS"]
 
