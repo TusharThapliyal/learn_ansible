@@ -1,0 +1,28 @@
+---
+- hosts: all
+  become: true
+  tasks:
+
+    - name: install updates
+      package:
+        update_cache: yes
+
+- hosts: webserver
+  become: true
+  tasks:
+
+    - name: install nginx
+      package:
+        name: 
+          - nginx
+        state: latest
+
+- hosts: db
+  become: true
+  tasks:
+
+    - name: install psql
+      package:
+        name: 
+          - "{{ mysql }}"
+        state: latest
