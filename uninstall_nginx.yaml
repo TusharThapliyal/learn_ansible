@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: true
+  tasks:
+
+    - name: uninstall nginx
+      package:
+        name:
+          - nginx
+        state: absent
