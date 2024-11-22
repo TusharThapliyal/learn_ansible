@@ -4,12 +4,14 @@
   pre_tasks:
 
     - name: update package on apt
+      tags: always
       apt:
         update_cache: yes
         upgrade: dist
       when: ansible_distribution == "Ubuntu"
 
     - name: update package on yum
+      tags: always
       yum:
         update_only: true
         update_cache: yes
@@ -20,6 +22,7 @@
   tasks:
 
     - name: install apache and php on ubuntu
+      tags: apach2
       apt:
         name:
           - apache2
@@ -28,6 +31,7 @@
       when: ansible_distribution == "Ubuntu"
 
     - name: install apache and php on Amazon
+      tags: httpd
       yum:
         name:
           - httpd
@@ -40,6 +44,7 @@
   tasks:
 
     - name: install mariaDB on Amazon
+      tags: db
       dnf:
         name:
           - mariadb105-server
