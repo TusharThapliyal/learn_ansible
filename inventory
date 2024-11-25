@@ -1,5 +1,5 @@
 [webserver]
-13.201.49.252
-ec2-user@3.110.143.115
+ubuntu@server-1
+ec2-user@server-2
 [db]
-ec2-user@3.110.143.115
+ec2-user@server-2
