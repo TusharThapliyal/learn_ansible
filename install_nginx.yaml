@@ -16,5 +16,5 @@
         name: 
           - nginx
         state: latest
-        update_cache: yess
+        update_cache: yes
       when: ansible_distribution in ["Amazon","CentOS"]
